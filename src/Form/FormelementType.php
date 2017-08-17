@@ -27,6 +27,11 @@ class FormelementType extends AbstractType
                 'label' => Trans::__('Label for this form field'),
                 'attr' => ['help' => Trans::__('This is the user-visible label')],
             ])
+            ->add('attr',   'text', [
+                'label' => Trans::__('Enter class'),
+                'required' => false,
+                'attr' => ['help' => Trans::__('This is the user-visible label')],
+            ])            
             ->add('type',   'choice', [
                 'label' => Trans::__('Type of form element'),
                 'choices' => [

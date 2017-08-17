@@ -248,6 +248,7 @@ class FormEditorController implements ControllerProviderInterface
 
                 $fulldata[$formname]['fields'][$fieldkey]['type'] = $values['type'];
                 $fulldata[$formname]['fields'][$fieldkey]['options']['label'] = $values['label'];
+                $fulldata[$formname]['fields'][$fieldkey]['options']['attr']['class'] = $values['attr'];
                 if ($values['required'] == true) {
                     $fulldata[$formname]['fields'][$fieldkey]['options']['required'] = true;
                 } elseif ($values['type'] != 'submit') {
@@ -290,6 +291,10 @@ class FormEditorController implements ControllerProviderInterface
         foreach ($data['fields'] as $field => &$options) {
             $data['fields'][$field]['name'] = $field;
             $data['fields'][$field] = array_merge($data['fields'][$field], (array) $data['fields'][$field]['options']);
+
+            if(isset($data['fields'][$field]['options']['attr'])){
+                $data['fields'][$field]['attr'] = $data['fields'][$field]['options']['attr']['class'];
+            }
 
             if (isset($data['fields'][$field]['choices'])) {
                 $data['fields'][$field]['data'] = $data['fields'][$field]['choices'];

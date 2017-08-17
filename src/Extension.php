@@ -57,7 +57,7 @@ class Extension extends SimpleExtension
             (new MenuEntry('formeditor', 'formeditor'))
                 ->setLabel(Trans::__('Form editor'))
                 ->setIcon('fa:pencil-square-o')
-                ->setPermission('admin||root||developer||editor'),
+                ->setPermission('files:theme'),
         ];
     }
 
